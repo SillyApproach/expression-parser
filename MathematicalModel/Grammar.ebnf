@@ -1,0 +1,25 @@
+expression  -> term ;
+term        -> factor ( ( "-" | "+" ) factor )* ;
+factor      -> unary ( ( "/" | "*" ) unary )*
+unary       -> "-" unary
+             | exponent ;
+exponent    -> primary ( "^" primary )* ;
+primary     -> NUMBER
+             | identifier
+             | "(" expression ")" ;
+
+identifier  -> STRING ( STRING | NUMBER )* ;
+
+NUMBER      -> digit+ ;
+STRING      -> character+ ;
+
+character   -> "a" - "z" | "A" - "Z" | "_" ;
+digit       -> "0" - "9" ;
+operator    -> "=" | ">" | "<" | ">=" | "<="
+             | "+" | "-" | "*" | "/" | "^" ;
+
+
+Term        - +
+Factor      / *
+Unary       -
+Exponent    ^
