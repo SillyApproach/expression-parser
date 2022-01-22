@@ -1,6 +1,6 @@
 expression  -> term ;
 term        -> factor ( "+" factor )* ;
-factor      -> unary ( "*" unary )*
+factor      -> unary ( "*" unary )* ;
 unary       -> "!" unary
              | primary ;
 primary     -> ( "1" | "0" )
