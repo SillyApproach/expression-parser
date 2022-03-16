@@ -26,9 +26,6 @@ function Binary:interprete()
     elseif tType == TokenType.STAR then
         return self.left:interprete() * self.right:interprete()
     elseif tType == TokenType.CARET then
-        local b = self.left:interprete()
-        local a = b < 0 and -1 or 1
-        local x = self.right:interprete()
-        return a * math.exp(x * math.log(a * b))
+        return self.left:interprete() ^ self.right:interprete()
     end
 end
